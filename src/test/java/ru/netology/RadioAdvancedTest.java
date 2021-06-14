@@ -157,6 +157,17 @@ public class RadioAdvancedTest {
         int actual = radio.getMinVolumeLevel();
         assertEquals(expected, actual);
     }
+    @Test
+    public void oneStepForwardVolumeLevel() {
+        RadioAdvanced radio = new RadioAdvanced();
+        radio.setCurrentVolumeLevel(6);
+
+        radio.setCurrentVolumeLevel(-1);
+
+        int expected = 7;
+        int actual = radio.getCurrentVolumeLevel();
+        assertEquals(expected, actual);
+    }
 
     @Test
       void shouldInitFieldToZeroValues() {

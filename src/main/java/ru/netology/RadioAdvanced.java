@@ -84,10 +84,24 @@ public class RadioAdvanced {
             return;
         }
         if (currentVolumeLevel < minVolumeLevel) {
-            return;
+           return;
         }
         this.currentVolumeLevel = currentVolumeLevel;
     }
 
+    public void VolumeOneStepUp() {
+        if (currentVolumeLevel >= maxVolumeLevel) {
+            return;
+        }
+        currentVolumeLevel++;
+    }
+
+
+    public void VolumeOneStepDown() {
+        if (currentVolumeLevel <= maxVolumeLevel) {
+            return;
+        }
+        currentVolumeLevel--;
+    }
     }
 
