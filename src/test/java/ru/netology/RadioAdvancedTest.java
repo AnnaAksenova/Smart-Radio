@@ -69,30 +69,20 @@ public class RadioAdvancedTest {
         assertEquals(expected, actual);
     }
     @Test
-    public void setCurrentRadioNumberMoreMax(){
-        RadioAdvanced radio = new RadioAdvanced();
-        radio.setMaxRadioNumber(9);
-        radio.setMinRadioNumber(0);
-        radio.setCurrentRadioNumber(0);
-
-        radio.setCurrentRadioNumber(10);
-
-        int expected = 0;
-        int actual = radio.getCurrentRadioNumber();
-        assertEquals(expected, actual);
-    }
-    @Test
     public void setCurrentRadioNumberLessMin(){
         RadioAdvanced radio = new RadioAdvanced();
-        radio.setMaxRadioNumber(9);
-        radio.setMinRadioNumber(0);
-        radio.setCurrentRadioNumber(0);
-
-        radio.setCurrentRadioNumber(-1);
-
-        int expected = 0;
+       radio.setCurrentRadioNumber(0);
+        radio.radioNumberOneStepDown();
         int actual = radio.getCurrentRadioNumber();
-        assertEquals(expected, actual);
+        assertEquals(9, actual);
+    }
+    @Test
+    public void setCurrentRadioNumberMoreMax(){
+        RadioAdvanced radio = new RadioAdvanced();
+        radio.setCurrentRadioNumber(9);
+        radio.radioNumberOneStepUp();
+        int actual = radio.getCurrentRadioNumber();
+        assertEquals(0, actual);
     }
     @Test
     public void increaseVolumeMoreMax() {
@@ -160,13 +150,17 @@ public class RadioAdvancedTest {
     @Test
     public void oneStepForwardVolumeLevel() {
         RadioAdvanced radio = new RadioAdvanced();
-        radio.setCurrentVolumeLevel(6);
+        radio.setCurrentVolumeLevel(5);
+        radio.volumeOneStepUp();
+        assertEquals(6, radio.getCurrentVolumeLevel());
+    }
 
-        radio.setCurrentVolumeLevel(-1);
-
-        int expected = 7;
-        int actual = radio.getCurrentVolumeLevel();
-        assertEquals(expected, actual);
+    @Test
+    public void oneStepDownVolumeLevel() {
+        RadioAdvanced radio = new RadioAdvanced();
+        radio.setCurrentVolumeLevel(5);
+        radio.volumeOneStepDown();
+        assertEquals(4, radio.getCurrentVolumeLevel());
     }
 
     @Test
