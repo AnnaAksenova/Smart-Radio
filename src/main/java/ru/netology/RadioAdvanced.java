@@ -10,11 +10,11 @@ public class RadioAdvanced {
     private int currentVolumeLevel;
     private int maxVolumeLevel = 100;
     private int minVolumeLevel = 0;
-    private int quantityStation;
+    //private int quantityStation;
 
 
-    public RadioAdvanced(int quantityStation) {
-        this.quantityStation = 10;
+    public RadioAdvanced(int maxRadioNumber) {
+        this.maxRadioNumber = 10;
     }
 
     public RadioAdvanced() {
@@ -41,7 +41,7 @@ public class RadioAdvanced {
     }
 
     public void setMaxRadioNumber(int maxRadioNumber) {
-        this.maxRadioNumber = quantityStation;
+        this.maxRadioNumber = maxRadioNumber;
     }
 
     public int getMinRadioNumber() {

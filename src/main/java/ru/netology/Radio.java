@@ -3,7 +3,7 @@ package ru.netology;
 public class Radio {
     String name;
     int currentRadioNumber;
-    int maxRadioNumber = 9;
+    int maxRadioNumber = 10;
     int minRadioNumber = 0;
     int currentVolumeLevel;
     int maxVolumeLevel = 100;
