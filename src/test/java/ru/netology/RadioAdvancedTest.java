@@ -77,12 +77,44 @@ public class RadioAdvancedTest {
         assertEquals(9, actual);
     }
     @Test
+    public void setCurrentRadioNumberLessMin2(){
+        RadioAdvanced radio = new RadioAdvanced();
+        radio.setCurrentRadioNumber(-1);
+        radio.radioNumberOneStepDown();
+        int actual = radio.getCurrentRadioNumber();
+        assertEquals(9, actual);
+    }
+    @Test
+    public void setCurrentRadioNumberLessMin3(){
+        RadioAdvanced radio = new RadioAdvanced();
+        radio.setCurrentRadioNumber(0);
+        radio.radioNumberOneStepDown();
+        int actual = radio.getCurrentRadioNumber();
+        assertEquals(9, actual);
+    }
+    @Test
+    public void setCurrentRadioNumberLessMin4(){
+        RadioAdvanced radio = new RadioAdvanced();
+        radio.setCurrentRadioNumber(2);
+        radio.radioNumberOneStepDown();
+        int actual = radio.getCurrentRadioNumber();
+        assertEquals(1, actual);
+    }
+    @Test
     public void setCurrentRadioNumberMoreMax(){
         RadioAdvanced radio = new RadioAdvanced();
         radio.setCurrentRadioNumber(9);
         radio.radioNumberOneStepUp();
         int actual = radio.getCurrentRadioNumber();
         assertEquals(0, actual);
+    }
+    @Test
+    public void setCurrentRadioNumberMoreMax2(){
+        RadioAdvanced radio = new RadioAdvanced();
+        radio.setCurrentRadioNumber(8);
+        radio.radioNumberOneStepUp();
+        int actual = radio.getCurrentRadioNumber();
+        assertEquals(9, actual);
     }
     @Test
     public void increaseVolumeMoreMax() {
@@ -154,6 +186,13 @@ public class RadioAdvancedTest {
         radio.volumeOneStepUp();
         assertEquals(6, radio.getCurrentVolumeLevel());
     }
+    @Test
+    public void oneStepForwardVolumeLevel2() {
+        RadioAdvanced radio = new RadioAdvanced();
+        radio.setCurrentVolumeLevel(10);
+        radio.volumeOneStepUp();
+        assertEquals(10, radio.getCurrentVolumeLevel());
+    }
 
     @Test
     public void oneStepDownVolumeLevel() {
@@ -164,7 +203,14 @@ public class RadioAdvancedTest {
     }
 
     @Test
-      void shouldInitFieldToZeroValues() {
+    public void oneStepDownVolumeLevel2() {
+        RadioAdvanced radio = new RadioAdvanced();
+        radio.setCurrentVolumeLevel(-1);
+        radio.volumeOneStepDown();
+        assertEquals(0, radio.getCurrentVolumeLevel());
+    }
+    @Test
+    void shouldInitFieldToZeroValues() {
         Radio radio = new Radio();
         assertNull(radio.name);
         assertEquals(9, radio.maxRadioNumber);
@@ -174,4 +220,5 @@ public class RadioAdvancedTest {
         assertEquals(10, radio.maxVolumeLevel);
         assertEquals(0, radio.currentVolumeLevel);
     }
+
 }
