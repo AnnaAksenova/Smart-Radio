@@ -6,7 +6,7 @@ public class Radio {
     int maxRadioNumber = 9;
     int minRadioNumber = 0;
     int currentVolumeLevel;
-    int maxVolumeLevel = 10;
+    int maxVolumeLevel = 100;
     int minVolumeLevel = 0;
     boolean on;
 }

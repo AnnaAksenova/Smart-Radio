@@ -5,12 +5,20 @@ public class RadioAdvanced {
     private String name;
     private String wantStation;
     private int currentRadioNumber;
-    private int maxRadioNumber = 9;
+    private int maxRadioNumber;
     private int minRadioNumber = 0;
     private int currentVolumeLevel;
-    private int maxVolumeLevel = 10;
+    private int maxVolumeLevel = 100;
     private int minVolumeLevel = 0;
+    private int quantityStation;
 
+
+    public RadioAdvanced(int quantityStation) {
+        this.quantityStation = 10;
+    }
+
+    public RadioAdvanced() {
+    }
 
     public String getName() {
         return name;
@@ -33,7 +41,7 @@ public class RadioAdvanced {
     }
 
     public void setMaxRadioNumber(int maxRadioNumber) {
-        this.maxRadioNumber = maxRadioNumber;
+        this.maxRadioNumber = quantityStation;
     }
 
     public int getMinRadioNumber() {
