@@ -5,14 +5,18 @@ public class RadioAdvanced {
     private String name;
     private String wantStation;
     private int currentRadioNumber;
-    private int maxRadioNumber = 10;
     private int minRadioNumber = 0;
     private int currentVolumeLevel;
     private int maxVolumeLevel = 100;
     private int minVolumeLevel = 0;
+    private int totalNumberStation = 10;
 
-    public RadioAdvanced(int maxRadioNumber) {
-        this.maxRadioNumber = maxRadioNumber;
+    public RadioAdvanced(){
+        this.totalNumberStation = 10;
+    }
+
+    public RadioAdvanced(int totalNumberStation) {
+        this.totalNumberStation = totalNumberStation;
     }
 
     public String getName() {
@@ -31,13 +35,6 @@ public class RadioAdvanced {
         this.wantStation = wantStation;
     }
 
-    public int getMaxRadioNumber() {
-        return maxRadioNumber;
-    }
-
-    public void setMaxRadioNumber(int maxRadioNumber) {
-        this.maxRadioNumber = maxRadioNumber;
-    }
 
     public int getMinRadioNumber() {
         return minRadioNumber;
@@ -52,7 +49,7 @@ public class RadioAdvanced {
     }
 
     public void setCurrentRadioNumber(int currentRadioNumber) {
-        if (currentRadioNumber > maxRadioNumber) {
+        if (currentRadioNumber > totalNumberStation) {
             return;
         }
         if (currentRadioNumber < minRadioNumber) {
@@ -62,7 +59,7 @@ public class RadioAdvanced {
     }
 
     public int radioNumberOneStepUp() {
-        if (currentRadioNumber >= maxRadioNumber) {
+        if (currentRadioNumber == totalNumberStation-1) {
             currentRadioNumber = minRadioNumber;
             return minRadioNumber;
         }
@@ -71,9 +68,9 @@ public class RadioAdvanced {
     }
 
     public int radioNumberOneStepDown() {
-        if (currentRadioNumber <= minRadioNumber) {
-            currentRadioNumber = maxRadioNumber;
-            return maxRadioNumber;
+        if (currentRadioNumber == minRadioNumber) {
+            currentRadioNumber = totalNumberStation-1;
+            return totalNumberStation-1;
         }
         currentRadioNumber--;
         return currentRadioNumber;

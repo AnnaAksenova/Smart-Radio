@@ -14,16 +14,9 @@ public class RadioAdvancedTest {
     }
 
     @Test
-    public void maxStationEquallyQuantityStation() {
-        RadioAdvanced radio = new RadioAdvanced(10);
-        radio.setMaxRadioNumber(10);
-        assertEquals(10, radio.getMaxRadioNumber());
-    }
-
-    @Test
     public void returnZeroStationAfterMax() {
         RadioAdvanced radio = new RadioAdvanced(10);
-        radio.setCurrentRadioNumber(10);
+        radio.setCurrentRadioNumber(9);
 
         radio.radioNumberOneStepUp();
 
@@ -47,7 +40,6 @@ public class RadioAdvancedTest {
     @Test
     public void switchingOnNextStation() {
         RadioAdvanced radio = new RadioAdvanced(10);
-        radio.setMaxRadioNumber(10);
         radio.setMinRadioNumber(0);
         radio.setCurrentRadioNumber(3);
 
@@ -61,7 +53,6 @@ public class RadioAdvancedTest {
     @Test
     public void switchingOnPreviousStation() {
         RadioAdvanced radio = new RadioAdvanced(10);
-        radio.setMaxRadioNumber(10);
         radio.setMinRadioNumber(0);
         radio.setCurrentRadioNumber(9);
 
@@ -77,7 +68,7 @@ public class RadioAdvancedTest {
        radio.setCurrentRadioNumber(0);
         radio.radioNumberOneStepDown();
         int actual = radio.getCurrentRadioNumber();
-        assertEquals(10, actual);
+        assertEquals(9, actual);
     }
     @Test
     public void setCurrentRadioNumberLessMin2(){
@@ -85,7 +76,7 @@ public class RadioAdvancedTest {
         radio.setCurrentRadioNumber(-1);
         radio.radioNumberOneStepDown();
         int actual = radio.getCurrentRadioNumber();
-        assertEquals(10, actual);
+        assertEquals(9, actual);
     }
 
     @Test
@@ -99,7 +90,7 @@ public class RadioAdvancedTest {
     @Test
     public void setCurrentRadioNumberMoreMax(){
         RadioAdvanced radio = new RadioAdvanced(10);
-        radio.setCurrentRadioNumber(10);
+        radio.setCurrentRadioNumber(9);
         radio.radioNumberOneStepUp();
         int actual = radio.getCurrentRadioNumber();
         assertEquals(0, actual);
@@ -110,7 +101,7 @@ public class RadioAdvancedTest {
         radio.setCurrentRadioNumber(9);
         radio.radioNumberOneStepUp();
         int actual = radio.getCurrentRadioNumber();
-        assertEquals(10, actual);
+        assertEquals(0, actual);
     }
     @Test
     public void increaseVolumeMoreMax() {
@@ -209,7 +200,6 @@ public class RadioAdvancedTest {
       void shouldInitFieldToZeroValues() {
         Radio radio = new Radio();
         assertNull(radio.name);
-        assertEquals(10, radio.maxRadioNumber);
         assertEquals(0, radio.minRadioNumber);
         assertEquals(0, radio.currentRadioNumber);
         assertEquals(0, radio.minVolumeLevel);
